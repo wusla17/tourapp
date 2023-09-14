@@ -1,4 +1,56 @@
+/* Add this CSS to your Place.css file */
+
 .wrapper {
   /* display: flex; */
   margin: 50px 100px;
+}
+
+.Place-Info {
+  margin-bottom: 20px;
+  display: inline-block;
+  height: 20px;
+}
+
+.Place-Info h2 {
+  font-size: 44px;
+}
+
+.category {
+  border: 2px solid #e1e1e1;
+  border-radius: 30%;
+  padding: 10px 20px;
+  margin-right: 10px;
+}
+.Image {
+  display: flex;
+}
+.Place-Image {
+  flex: 1; /* Take up remaining horizontal space */
+  max-width: 50%; /* Adjust this as needed */
+  margin-top: 10px;
+}
+
+.Place-Image img {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+.Category-Images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  width: 50%;
+  margin-top: 20px;
+  margin-left: 10px;
+  border-top-right-radius: 100px;
+}
+
+.Category-Image {
+  max-width: 100%;
+  height: auto;
+}
+.Details {
+  font-size: 30px;
 }
