@@ -1,0 +1,60 @@
+.Greeting {
+  padding-left: 10px;
+}
+.Greeting h2 {
+  color: #242424;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.Greeting p {
+  color: #e1e1e1;
+}
+.Home-Contianer {
+  padding: 10px 40px;
+}
+.Home-Contianer .TourDiv div {
+  display: inline-block;
+  margin-left: 10px;
+}
+.Home-Contianer .TourDiv .Image-Place {
+  width: 370px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  display: inline-block;
+  margin-top: 40px;
+}
+.TourDiv {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
+  grid-gap: 20px;
+}
+.Image-Place {
+  width: 100%;
+  height: auto;
+}
+
+.CardContent {
+  padding: 20px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.MarkImage {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.Text-Container {
+  margin-left: 20px;
+}
+.Text-Container a {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+.Text-Container a span {
+  margin-left: 10px;
+}
