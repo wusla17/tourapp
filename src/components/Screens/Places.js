@@ -12,7 +12,6 @@ function Places() {
     axios
       .get("https://traveller.talrop.works/api/v1/places")
       .then((res) => {
-        // Convert the response data to an array if it is not already an array
         const placesArray = Array.isArray(res.data.data)
           ? res.data.data
           : Object.values(res.data.data);
@@ -26,8 +25,8 @@ function Places() {
 
   const renderPlaces = () => {
     return places.map((place) => (
-      <PlaceCard>
-        <PlaceCardLink>
+      <PlaceCard key={place.id}>
+        <PlaceCardLink to={`/place/${place.id}`}>
           <PlaceImage src={place.image} alt={place.name} />
           <PlaceBottomContainer>
             <PlaceTitle>{place.name}</PlaceTitle>
@@ -35,7 +34,7 @@ function Places() {
               <LocationIcon
                 src={require("../../assets/images/place.svg").default}
               />
-              <LocationName>{place.name}</LocationName>
+              <LocationName>{place.location}</LocationName>
             </Location>
           </PlaceBottomContainer>
         </PlaceCardLink>
@@ -51,28 +50,80 @@ function Places() {
       <Header />
       <TopContainer>
         <Heading>Welcome Arsh</Heading>
-        <Paragaph>Explor the Worls around you</Paragaph>
+        <Paragaph>Explore the World around you</Paragaph>
       </TopContainer>
 
-      {/* Convert the object returned by the renderPlaces() function to a valid React child before rendering it */}
-      <PlacesContainer>
-        {React.createElement("ul", null, renderPlaces())}
-      </PlacesContainer>
+      <PlacesContainer>{renderPlaces()}</PlacesContainer>
     </>
   );
 }
 
-const TopContainer = styled.div``;
-const Heading = styled.h1``;
-const Paragaph = styled.p``;
-const PlacesContainer = styled.ul``;
-const PlaceCard = styled.li``;
-const PlaceCardLink = styled(Link)``;
-const PlaceImage = styled.img``;
-const PlaceBottomContainer = styled.div``;
-const PlaceTitle = styled.h3``;
-const Location = styled.div``;
-const LocationIcon = styled.img``;
-const LocationName = styled.span``;
+const TopContainer = styled.div`
+  width: 90%;
+  margin: 100px auto 0;
+`;
+
+const Heading = styled.h1`
+  font-size: 36px;
+  margin-bottom: 20px;
+`;
+
+const Paragaph = styled.p`
+  font-size: 22px;
+  color: #dfdfe2;
+`;
+
+const PlacesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
+  margin: 50px auto 0;
+`;
+
+const PlaceCard = styled.div`
+  width: calc(25% - 15px);
+  margin-bottom: 25px;
+  box-sizing: border-box;
+
+  &:nth-child(4n) {
+    margin-right: 0;
+  }
+`;
+
+const PlaceCardLink = styled(Link)`
+  display: block;
+  text-decoration: none;
+  color: inherit;
+`;
+
+const PlaceImage = styled.img`
+  width: 100%;
+  display: block;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+`;
+
+const PlaceBottomContainer = styled.div`
+  padding: 10px 15px;
+`;
+
+const PlaceTitle = styled.h3`
+  margin-bottom: 10px;
+  font-size: 20px;
+`;
+
+const Location = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const LocationIcon = styled.img`
+  margin-right: 10px;
+`;
+
+const LocationName = styled.span`
+  font-size: 18px;
+`;
 
 export default Places;
