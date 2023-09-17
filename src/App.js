@@ -1,18 +1,13 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./src/Home";
-import Place from "./src/Place";
-import MainNav from "./src/Nav/MainNav";
+import Places from "./components/Screens/Places";
+// import Place from "./components/Screens/Place";
 
 function App() {
   return (
     <>
       <Router>
-        <MainNav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Place/:id" element={<Place />} />
-        </Routes>
+        <Places />
       </Router>
     </>
   );
